@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'main.css' %}" />
+<h3><a href="{% url 'create-task' %}">Add Task</a></h3>
+<table>
+    <caption>TO-DO LIST</caption>
+    
+    
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Due Date</th>
+    </tr>
+    {% for proj in projectObj %}
+    <tr>
+        <td>{{proj.title}}</td>
+        <td>{{proj.description}}</td>
+        <td>{{proj.due_date}}</td>
+        <td><a href="{% url 'update-task' proj.id %}">Edit</a></td>
+        <td><a href="{% url 'delete-task' proj.id %}">Delete</a></td>
+    </tr>
+        
+    {% endfor %}
+</table>
+{% endblock content %}

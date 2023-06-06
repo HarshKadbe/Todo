@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'style.css' %}" />
+
+
+<div class="formbold-main-wrapper">
+
+    <div class="formbold-form-wrapper">
+      <form action="" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="formbold-mb-5">
+          <label for="name" class="formbold-form-label">{{field.label}}</label>
+          {{field}}
+        </div>
+        {% endfor %}
+
+        
+  
+        <div>
+          <button class="formbold-btn" type="submit" value="Submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+{% endblock content %}
